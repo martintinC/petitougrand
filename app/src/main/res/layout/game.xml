@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.proggraphique.petitougrand.MyGLSurfaceView
+        android:id="@+id/myGLSurfaceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/arreter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="arreter"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        />
+
+    <Button
+        android:id="@+id/egal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="egal"
+        android:layout_above="@id/arreter"
+        android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:id="@+id/moins"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="moins"
+        android:layout_toLeftOf="@id/egal"
+        android:layout_above="@id/arreter"
+        />
+
+    <Button
+        android:id="@+id/plus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="plus"
+        android:layout_toRightOf="@id/egal"
+        android:layout_above="@id/arreter"
+        />
+
+</RelativeLayout>

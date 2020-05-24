@@ -54,9 +54,7 @@ public class Square {
             "void main() {\n" +
             "float x = Position.x;\n"+
             "float y = Position.y;\n"+
-            "float test = x*x+y*y;\n"+
-            "if (test>1.0) \n"+
-                "discard;\n"+
+
             "fragColor = Couleur;\n" +
             "}\n";
 
