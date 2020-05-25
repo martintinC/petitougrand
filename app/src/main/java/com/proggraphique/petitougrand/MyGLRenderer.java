@@ -28,15 +28,15 @@ import android.util.Log;
 public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private static final String TAG = "MyGLRenderer";
-    //private Square   mSquare;
+    private Square   mSquare;
     //
-    //private Triangle mTriangle;
+    private Triangle mTriangle;
     //private Losange mLosange;
     //private Coude mCoude;
     //private Coeur mCoeur;
     //private Croix mCroix;
     //private Papillon mPapillon;
-    private Papillon mSquare;
+    //private Papillon mSquare;
 
     // Les matrices habituelles Model/View/Projection
 
@@ -45,7 +45,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mViewMatrix = new float[16];
     private final float[] mModelMatrix = new float[16];
 
-    private float[] mSquarePosition = {0.0f, 0.0f};
+    private float[] mSquarePosition = {-8.0f, 8.0f};
     //
     private float[] mTrianglePosition = {0.0f,0.0f};
     private float[] mLosangePosition = {0.0f,0.0f};
@@ -62,15 +62,15 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         GLES30.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         /* on va définir une classe Square pour dessiner des carrés */
-        //mSquare   = new Square(mSquarePosition);
-        //mTriangle = new Triangle(mTrianglePosition);
+        mSquare   = new Square(mSquarePosition);
+        mTriangle = new Triangle(mTrianglePosition);
         //mLosange = new Losange(mLosangePosition);
         //mCoude = new Coude(mCoudePosition);
         //mCoeur = new Coeur(mCoeurPosition);
         //mCroix = new Croix(mCoeurPosition);
         //mPapillon = new Papillon(mPapillon);
         //
-        mSquare = new Papillon(mPapillonPosition);
+        //mSquare = new Papillon(mPapillonPosition);
     }
 
     /* Deuxième méthode équivalente à la fonction Display */
@@ -104,6 +104,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         Log.d("Renderer", "mSquarex"+Float.toString(mSquarePosition[0]));
         Log.d("Renderer", "mSquarey"+Float.toString(mSquarePosition[1]));
+
 
         /* scratch est la matrice PxVxM finale */
         Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
