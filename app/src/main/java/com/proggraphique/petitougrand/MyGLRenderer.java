@@ -31,12 +31,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private Square   mSquare;
     //
     private Triangle mTriangle;
-    //private Losange mLosange;
-    //private Coude mCoude;
-    //private Coeur mCoeur;
-    //private Croix mCroix;
-    //private Papillon mPapillon;
-    //private Papillon mSquare;
+    private Losange mLosange;
+    private Coude mCoude;
+    private Coeur mCoeur;
+    private Croix mCroix;
+    private Papillon mPapillon;
 
     // Les matrices habituelles Model/View/Projection
 
@@ -45,14 +44,13 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mViewMatrix = new float[16];
     private final float[] mModelMatrix = new float[16];
 
-    private float[] mSquarePosition = {-8.0f, 8.0f};
-    //
-    private float[] mTrianglePosition = {0.0f,0.0f};
-    private float[] mLosangePosition = {0.0f,0.0f};
-    private float[] mCoudePosition = {0.0f,0.0f};
-    private float[] mCoeurPosition = {0.0f,0.0f};
-    private float[] mCroixPosition = {0.0f,0.0f};
-    private float[] mPapillonPosition = {0.0f,0.0f};
+    private float[] mSquarePosition = {-8.5f, 8.0f};
+    private float[] mTrianglePosition = {2.5f, -0.5f};
+    private float[] mLosangePosition = {2.5f, 0.5f};
+    private float[] mCoudePosition = {2.5f, 0.f};
+    private float[] mCoeurPosition = {2.5f, 0.5f};
+    private float[] mCroixPosition = {3.0f, -0.5f};
+    private float[] mPapillonPosition = {3.0f,0.0f};
 
     /* Première méthode équivalente à la fonction init en OpenGLSL */
     @Override
@@ -64,13 +62,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         /* on va définir une classe Square pour dessiner des carrés */
         mSquare   = new Square(mSquarePosition);
         mTriangle = new Triangle(mTrianglePosition);
-        //mLosange = new Losange(mLosangePosition);
-        //mCoude = new Coude(mCoudePosition);
-        //mCoeur = new Coeur(mCoeurPosition);
-        //mCroix = new Croix(mCoeurPosition);
-        //mPapillon = new Papillon(mPapillon);
-        //
-        //mSquare = new Papillon(mPapillonPosition);
+        mLosange = new Losange(mLosangePosition);
+        mCoude = new Coude(mCoudePosition);
+        mCoeur = new Coeur(mCoeurPosition);
+        mCroix = new Croix(mCoeurPosition);
+        mPapillon = new Papillon(mPapillonPosition);
     }
 
     /* Deuxième méthode équivalente à la fonction Display */
@@ -100,7 +96,10 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         /* Pour définir une translation on donne les paramètres de la translation
         et la matrice (ici mModelMatrix) est multipliée par la translation correspondante
          */
+
+
         Matrix.translateM(mModelMatrix, 0, mSquarePosition[0], mSquarePosition[1], 0);
+        //Matrix.translateM(mModelMatrix, 0, mTrianglePosition[0], mTrianglePosition[1], 0);
 
         Log.d("Renderer", "mSquarex"+Float.toString(mSquarePosition[0]));
         Log.d("Renderer", "mSquarey"+Float.toString(mSquarePosition[1]));
@@ -112,12 +111,31 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         /* on appelle la méthode dessin du carré élémentaire */
         mSquare.draw(scratch);
         //
-        //mTriangle.draw(scratch);
-        //mLosange.draw(scratch);
-        //mCoude.draw(scratch);
-        //mCoeur.draw(scratch);
-        //mCroix.draw(scratch);
-        //mPapillon.draw(scratch);
+
+
+        Matrix.translateM(mModelMatrix, 0, mTrianglePosition[0], mTrianglePosition[1], 0);
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
+        mTriangle.draw(scratch);
+
+        Matrix.translateM(mModelMatrix, 0, mLosangePosition[0], mLosangePosition[1], 0);
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
+        mLosange.draw(scratch);
+
+        Matrix.translateM(mModelMatrix, 0, mCoudePosition[0], mCoudePosition[1], 0);
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
+        mCoude.draw(scratch);
+
+        Matrix.translateM(mModelMatrix, 0, mCoeurPosition[0], mCoeurPosition[1], 0);
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
+        mCoeur.draw(scratch);
+
+        Matrix.translateM(mModelMatrix, 0, mCroixPosition[0], mCroixPosition[1], 0);
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
+        mCroix.draw(scratch);
+
+        Matrix.translateM(mModelMatrix, 0, mPapillonPosition[0], mPapillonPosition[1], 0);
+        Matrix.multiplyMM(scratch, 0, mMVPMatrix, 0, mModelMatrix, 0);
+        mPapillon.draw(scratch);
 
     }
 

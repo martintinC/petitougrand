@@ -60,12 +60,12 @@ public class Coude {
      */
 
     static float coudeCoords[] = {
-            0.0f,   1.0f, 0.0f,
-            0.0f,  2.0f, 0.0f,
-            2.0f,  2.0f, 0.0f,
-            2.f,  -1.0f, 0.0f,
-            -2.f,  -1.f, 0.0f,
-            -2.f,  1.f, 0.0f};
+            0.0f,   0.5f, 0.0f,
+            0.0f,  1.0f, 0.0f,
+            1.0f,  1.0f, 0.0f,
+            1.f,  -0.5f, 0.0f,
+            -1.f,  -0.5f, 0.0f,
+            -1.f,  0.5f, 0.0f};
     // Le tableau des couleurs
     static float coudeColors[] = {
             1.0f,  0.0f, 0.0f, 1.0f,

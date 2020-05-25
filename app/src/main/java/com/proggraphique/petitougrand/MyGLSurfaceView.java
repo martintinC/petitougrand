@@ -56,7 +56,6 @@ public class MyGLSurfaceView extends GLSurfaceView {
     private boolean condition = false;
 
     /* Comment interpréter les événements sur l'écran tactile */
-
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         // Les coordonnées du point touché sur l'écran
