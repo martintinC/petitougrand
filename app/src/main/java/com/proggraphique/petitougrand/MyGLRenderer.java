@@ -28,7 +28,15 @@ import android.util.Log;
 public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     private static final String TAG = "MyGLRenderer";
-    private Square   mSquare;
+    //private Square   mSquare;
+    //
+    //private Triangle mTriangle;
+    //private Losange mLosange;
+    //private Coude mCoude;
+    //private Coeur mCoeur;
+    //private Croix mCroix;
+    //private Papillon mPapillon;
+    private Papillon mSquare;
 
     // Les matrices habituelles Model/View/Projection
 
@@ -38,6 +46,13 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     private final float[] mModelMatrix = new float[16];
 
     private float[] mSquarePosition = {0.0f, 0.0f};
+    //
+    private float[] mTrianglePosition = {0.0f,0.0f};
+    private float[] mLosangePosition = {0.0f,0.0f};
+    private float[] mCoudePosition = {0.0f,0.0f};
+    private float[] mCoeurPosition = {0.0f,0.0f};
+    private float[] mCroixPosition = {0.0f,0.0f};
+    private float[] mPapillonPosition = {0.0f,0.0f};
 
     /* Première méthode équivalente à la fonction init en OpenGLSL */
     @Override
@@ -47,7 +62,15 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         GLES30.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
         /* on va définir une classe Square pour dessiner des carrés */
-        mSquare   = new Square(mSquarePosition);
+        //mSquare   = new Square(mSquarePosition);
+        //mTriangle = new Triangle(mTrianglePosition);
+        //mLosange = new Losange(mLosangePosition);
+        //mCoude = new Coude(mCoudePosition);
+        //mCoeur = new Coeur(mCoeurPosition);
+        //mCroix = new Croix(mCoeurPosition);
+        //mPapillon = new Papillon(mPapillon);
+        //
+        mSquare = new Papillon(mPapillonPosition);
     }
 
     /* Deuxième méthode équivalente à la fonction Display */
@@ -87,6 +110,13 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
         /* on appelle la méthode dessin du carré élémentaire */
         mSquare.draw(scratch);
+        //
+        //mTriangle.draw(scratch);
+        //mLosange.draw(scratch);
+        //mCoude.draw(scratch);
+        //mCoeur.draw(scratch);
+        //mCroix.draw(scratch);
+        //mPapillon.draw(scratch);
 
     }
 
@@ -122,11 +152,18 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         mSquarePosition[1] += y;*/
         mSquarePosition[0] = x;
         mSquarePosition[1] = y;
+        //
+        //mTrianglePosition[0] = x;
+        //mTrianglePosition[1] = y;
 
     }
 
     public float[] getPosition() {
         return mSquarePosition;
     }
+
+    /*public float[] getmTrianglePosition(){
+        return  mTrianglePosition;
+    }*/
 
 }

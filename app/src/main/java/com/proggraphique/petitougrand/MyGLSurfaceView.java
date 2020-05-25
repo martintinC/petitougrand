@@ -56,6 +56,7 @@ public class MyGLSurfaceView extends GLSurfaceView {
     private boolean condition = false;
 
     /* Comment interpréter les événements sur l'écran tactile */
+
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         // Les coordonnées du point touché sur l'écran
@@ -79,6 +80,8 @@ public class MyGLSurfaceView extends GLSurfaceView {
         soit la position courante du centre du carré
          */
         float[] pos = mRenderer.getPosition();
+        //
+        //float[]posTriangle = mRenderer.getmTrianglePosition();
 
         /* Conversion des coordonnées pixel en coordonnées OpenGL
         Attention l'axe x est inversé par rapport à OpenGLSL

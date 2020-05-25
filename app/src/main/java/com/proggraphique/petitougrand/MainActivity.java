@@ -8,7 +8,7 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     //
-    private OpenGLView openGLView;
+    //private OpenGLView openGLView;
     //private MyGLSurfaceView myGLSurfaceView;
 
     @Override
@@ -16,19 +16,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //
-        openGLView = (OpenGLView) findViewById(R.id.openGLView);
+        //openGLView = (OpenGLView) findViewById(R.id.openGLView);
         //myGLSurfaceView = new MyGLSurfaceView();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        openGLView.onResume();
+        //openGLView.onResume();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        openGLView.onPause();
+        //openGLView.onPause();
     }
 }
